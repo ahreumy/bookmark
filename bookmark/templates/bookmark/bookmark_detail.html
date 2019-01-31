@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}-detail {% endblock %}
+
+{% block content %}
+
+<div class="jumbotron">
+    <p class="lead">bookmark의
+{{object.id}} 번째 항목의 사이트 이름은
+{{object.site_name}} , url은
+<a href="{{object.url}}">{{object.url}}</a> 입니다.
+</p>
+  </div>
+
+{% endblock %}
+

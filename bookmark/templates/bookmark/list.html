@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}-List {% endblock %}
+{% block content %}
+ <div class="row">
+
+<table class="table">
+
+
+    <thead>
+    <tr class="table-info">
+        <th scope="col">보기</th>
+        <th scope="col">사이트 이름</th>
+        <th scope="col" >url</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+
+    </thead>
+    <tbody>
+{% for object in object_list %}
+    <tr>
+        <th scope="row"><a href="{{object.get_absolute_url}}">보기</a></th>
+        <td>{{object.site_name}}</td>
+        <td><a href="{{object.url}}">{{object.url}}</a></td>
+        <td><a class="btn btn-warning " href="{% url 'bookmark_update' object.id %}">수정</a></td>
+        <td><a class="btn btn-danger" href="{% url 'bookmark_delete' object.id %}">삭제</a></td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+</table>
+      <a class="btn btn-primary" href="{% url 'bookmark_create'  %}">추가</a>
+ </div>
+{% endblock %}
+
